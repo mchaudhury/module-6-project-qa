@@ -7,7 +7,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.css"
     />
-    <!-- <link rel="stylesheet" href="./index.css" /> -->
+    <link rel="stylesheet" href="./index.css" />
+
     <style>
       body {
         font-family: sans-serif;
@@ -28,8 +29,8 @@
     </style>
   </head>
   <body>
-    <h1>
-      Tic Tac JS
+    <h1 class="title">
+      Mo's Tic Tac Toe
       <button id="start-game">Start!</button>
     </h1>
 
@@ -140,27 +141,33 @@
         //
         // Return true if placed (spot was empty); false if not placed (spot already full)
 
-        // if (board[cellNumber] === null) {
-        board[cellNumber] = pieceType;
-        return true;
-        // }
+        if (board[cellNumber] === null) {
+          board[cellNumber] = pieceType;
+          return true;
+        }
 
-        // return false;
+        return false;
       }
 
       function computerMove() {
         // Make next possible move for the computer
 
         for (var i = 0; i < 9; i++) {
-          if (i === 3 || i === 7) {
-            board[i] = "o";
-            return board;
-          }
           if (board[i] === null) {
             board[i] = "O";
             return board;
           }
         }
+        // for (var i = 0; i < 9; i++) {
+        //   if (i === 3 || i === 7) {
+        //     board[i] = "O";
+        //     return board;
+        //   }
+        //   if (board[i] === null) {
+        //     board[i] = "O";
+        //     return board;
+        //   }
+        // }
       }
 
       function checkGameOver() {
@@ -232,5 +239,14 @@
 
       $("#start-game").on("click", startGame);
     </script>
+
+    <p class="textcolor">How To Play:</p>
+    <ol class="textcolor">
+      <li>Click on 'Start' button</li>
+      <li>Click on a Square</li>
+      <li>Computer will add 'O'</li>
+      <li>Click on another square</li>
+      <li>Try getting 3 'X's in a row</li>
+    </ol>
   </body>
 </html>
